@@ -112,7 +112,11 @@ def batch():
         f = request.files.get('csv_file')
         if f and f.filename:
             raw_bytes = f.read()
-            content = raw_bytes.decode('utf-8-sig')
+            try:
+                content = raw_bytes.decode('utf-8-sig')
+            except UnicodeDecodeError:
+                flash('Could not read the CSV file. Please save it as UTF-8.', 'warning')
+                return render_template('batch.html', rows=None, model_type=model_type)
             reader = csv.reader(io.StringIO(content))
             header = next(reader, None)
             text_col = 0
