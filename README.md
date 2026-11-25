@@ -313,6 +313,14 @@ Accuracy: 83.46%
 
 Use this checklist when checking the application. Record the date, environment, model, and observed result for each check; leave unchecked items as not tested.
 
+Run the automated input-validation checks from the repository root with:
+
+```powershell
+py -m unittest discover -s tests -v
+```
+
+These tests cover empty and over-2,000-character input on the dashboard and model-comparison routes. They do not run model inference or verify MuRIL.
+
 - [ ] Register an account, log in, and log out.
 - [ ] Submit valid English, Hindi, and Hinglish text using Logistic Regression and BiLSTM.
 - [ ] Try empty and whitespace-only dashboard input; confirm validation prevents a prediction.
