@@ -345,8 +345,8 @@ Accuracy: 83.46%
 
 ## Author
 
-Created by: Devansh
-Date: April 2026
+Created by: Krishna Yadav
+Date: october 2026
 Version: 1.0.0
 
 ---
