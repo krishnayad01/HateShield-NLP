@@ -63,6 +63,15 @@ footer {
   font-size: 0.85rem;
 }
 
+/* Keyboard focus accessibility */
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-check-input:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .display-6 { font-size: 2rem; }
