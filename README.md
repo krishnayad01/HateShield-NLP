@@ -309,13 +309,26 @@ Accuracy: 83.46%
 
 ---
 
+## Application Testing Checklist
+
+Use this checklist when checking the application. Record the date, environment, model, and observed result for each check; leave unchecked items as not tested.
+
+- [ ] Register an account, log in, and log out.
+- [ ] Submit valid English, Hindi, and Hinglish text using Logistic Regression and BiLSTM.
+- [ ] Try empty and whitespace-only dashboard input; confirm validation prevents a prediction.
+- [ ] Try dashboard input at and over the 2,000-character limit.
+- [ ] Compare models with valid, empty, and over-limit text.
+- [ ] Run batch analysis with pasted lines and a CSV, including an empty file and more than 200 rows.
+- [ ] Confirm dashboard predictions appear in history and check the PDF report links.
+- [ ] Test MuRIL only when its model files are available; record it as unavailable otherwise.
+
 ## Known Limitations
 
-- Requires 1+ GB RAM for MuRIL inference
-- Transformer models slower (3-5 sec per prediction)
-- Limited support for very short texts
-- Database limited (SQLite) - use PostgreSQL for scale
-- No batch API (yet)
+- The application is configured to load MuRIL from `model/muril`, but that model directory was not present in the repository during review. MuRIL inference is unverified in this checkout.
+- If a trained model is missing or fails to load, `utils/predict.py` may return a keyword-heuristic fallback. This is not a successful run of the selected trained model.
+- Hate and offensive language classification depends on context, quotation, sarcasm, and language mixing. A prediction and confidence score are not guaranteed to be correct.
+- Dashboard input is limited to 2,000 characters. Batch analysis caps the number of rows at 200.
+- The app uses a development fallback secret key if `SECRET_KEY` is not set; deployments should set a secure secret.
 
 ---
 
